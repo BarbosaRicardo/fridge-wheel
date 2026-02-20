@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🍽️ Fridge Wheel — What Should I Eat?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- API Key Banner -->
+  <div id="api-banner" class="api-banner">
+    <div class="api-inner">
+      <span>🔑 Enter your OpenAI API key to get started</span>
+      <input id="api-input" type="password" placeholder="sk-..." />
+      <button id="api-save">Save</button>
+      <a href="https://platform.openai.com/api-keys" target="_blank">Get a key →</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <header class="hero">
+      <h1>🍽️ Fridge Wheel</h1>
+      <p>Snap your fridge & cupboards. Spin the wheel. Eat something good.</p>
+    </header>
+
+    <!-- Step 1: Upload -->
+    <section class="card" id="step-upload">
+      <h2><span class="step">1</span> Photo your fridge & cupboards</h2>
+      <div class="drop-zone" id="drop-zone">
+        <div class="drop-inner">
+          <div class="drop-icon">📸</div>
+          <p>Drag & drop photos here, or <label for="file-input" class="link">browse</label></p>
+          <input type="file" id="file-input" accept="image/*" multiple hidden />
+        </div>
+      </div>
+      <div id="previews" class="previews"></div>
+      <button id="analyze-btn" class="btn-primary" disabled>🔍 Analyze My Ingredients</button>
+      <div id="ingredients-out" class="ingredients-out hidden"></div>
+    </section>
+
+    <!-- Step 2: Wheel -->
+    <section class="card hidden" id="step-wheel">
+      <h2><span class="step">2</span> Spin the meal wheel</h2>
+      <div class="wheel-wrap">
+        <div class="pointer">▼</div>
+        <canvas id="wheel-canvas" width="420" height="420"></canvas>
+      </div>
+      <button id="spin-btn" class="btn-primary">🎡 Spin!</button>
+    </section>
+
+    <!-- Step 3: Recipe -->
+    <section class="card hidden" id="step-recipe">
+      <h2><span class="step">3</span> Your recipe</h2>
+      <div id="recipe-out" class="recipe-out"></div>
+      <button id="spin-again-btn" class="btn-secondary">🔄 Spin Again</button>
+    </section>
+  </main>
+
+  <!-- Loading overlay -->
+  <div id="loading" class="loading hidden">
+    <div class="spinner"></div>
+    <p id="loading-msg">Analyzing your fridge...</p>
+  </div>
+
+  <script src="wheel.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
