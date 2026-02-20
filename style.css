@@ -57,8 +57,8 @@ body {
   font-size: 0.85rem;
 }
 .api-inner a { font-size: 0.8rem; color: var(--accent); text-decoration: none; }
-.api-banner.ok { background: #1a2e1a; }
-.api-banner.ok span { color: #6fcf97; }
+.api-banner.ok, .api-banner.saved { background: #1a2e1a; }
+.api-banner.ok span, .api-banner.saved span { color: #6fcf97; }
 
 /* Main */
 main {
@@ -128,17 +128,18 @@ main {
   gap: 10px;
   margin-bottom: 16px;
 }
-.previews img {
+.preview-item, .preview-wrap {
+  position: relative;
+}
+.preview-item img, .previews img {
   width: 90px;
   height: 90px;
   object-fit: cover;
   border-radius: 10px;
   border: 2px solid var(--border);
+  display: block;
 }
-.preview-wrap {
-  position: relative;
-}
-.preview-wrap .remove-btn {
+.preview-item .remove, .preview-wrap .remove-btn {
   position: absolute;
   top: -6px;
   right: -6px;
